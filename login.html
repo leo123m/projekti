@@ -73,4 +73,64 @@
             width: 100%;
         }
     </style>
-</head>
+</head><body>
+
+    <header>
+        <h1>Fitnesi për Të Gjithë</h1>
+        <p>Login për të hyrë në faqen kryesore</p>
+    </header>
+
+    <nav>
+        <a href="home.html">Ballina</a>
+        <a href="Sherbimet.html">Shërbimet</a>
+        <a href="Rrethnesh.html">Rreth Nesh</a>
+        <a href="Kontakti.html">Kontakti</a>
+        <a href="login.html">Kycu</a>
+    </nav>
+
+    <div class="container">
+        <h2>Login</h2>
+        <p>Ju lutem, futni informacionet tuaja për të hyrë.</p>
+        
+        <div class="error" id="error-message"></div>
+        
+        <form class="login-form" id="loginForm">
+            <label for="username">Emri i Përdoruesit:</label>
+            <input type="text" id="username" name="username" placeholder="Futni emrin e përdoruesit" required>
+            
+            <label for="password">Fjalëkalimi:</label>
+            <input type="password" id="password" name="password" placeholder="Futni fjalëkalimin" required>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fitnesi për Të Gjithë. Të gjitha të drejtat e rezervuara.</p>
+    </footer>
+
+    <script>
+        // Funksioni për të trajtuar formën e login-it
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Parandalon dërgimin e formës
+
+            // Merrni të dhënat nga forma
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Këtu mund të vendosni informacionet e përdoruesit që janë të sakta
+            const correctUsername = 'user';
+            const correctPassword = '12345';
+
+            // Kontrolloni nëse informacionet janë të sakta
+            if (username === correctUsername && password === correctPassword) {
+                // Nëse informacionet janë të sakta, ridrejto në faqen kryesore
+                window.location.href = 'home.html'; // Kjo mund të jetë adresa e faqes tuaj kryesore
+            } else {
+                // Nëse informacionet nuk janë të sakta, tregoni një mesazh gabimi
+                document.getElementById('error-message').textContent = 'Emri i përdoruesit ose fjalëkalimi është gabim.';
+            }
+        });
+    </script>
+</body>
+</html>
